@@ -46,6 +46,10 @@ gradlePlugin {
             id = libs.plugins.abiao.android.library.compose.get().pluginId
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
+        register("jvmLibrary") {
+            id = libs.plugins.abiao.jvm.library.get().pluginId
+            implementationClass = "JvmLibraryConventionPlugin"
+        }
     }
 }
 

@@ -34,6 +34,11 @@ android {
 }
 
 dependencies {
+
+    implementation(projects.core.model)
+    implementation(projects.core.data)
+    implementation(projects.core.common)
+
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.material3.adaptive)
@@ -44,5 +49,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtimeCompose)
     implementation(libs.androidx.lifecycle.viewModel.navigation3)
+    implementation(libs.androidx.core.splashscreen)
     ksp(libs.hilt.compiler)
 }

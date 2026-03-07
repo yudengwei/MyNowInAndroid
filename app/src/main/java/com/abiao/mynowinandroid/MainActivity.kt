@@ -1,47 +1,36 @@
 package com.abiao.mynowinandroid
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.abiao.mynowinandroid.ui.theme.MyNowInAndroidTheme
+import androidx.activity.viewModels
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    private val viewModel: MainActivityViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent {
-            MyNowInAndroidTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+        Log.i("ydw", "onCreate")
+        // Keep the splash screen on-screen until the UI state is loaded. This condition is
+        // evaluated each time the app needs to be redrawn so it should be fast to avoid blocking
+        // the UI.
+        splashScreen.setKeepOnScreenCondition {
+            val shouldNeed = viewModel.uiState.value.shouldKeepSplashScreen()
+            Log.i("ydw", "shouldNeed: $shouldNeed")
+            shouldNeed
         }
-    }
-}
+        Log.i("ydw", "setContent")
+        setContent {
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyNowInAndroidTheme {
-        Greeting("Android")
+        }
     }
 }

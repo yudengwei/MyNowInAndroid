@@ -16,7 +16,11 @@ hiltExt = "1.3.0"
 kotlin = "2.3.10"
 ksp = "2.3.4"
 androidxActivity = "1.12.4"
-
+androidxCoreSplashscreen = "1.2.0"
+kotlinxCoroutines = "1.10.2"
+androidxDataStore = "1.2.0"
+protobufPlugin = "0.9.6"
+protobuf = "4.29.2"
 
 [libraries]
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
@@ -42,23 +46,25 @@ androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "u
 androidx-compose-ui-util = { group = "androidx.compose.ui", name = "ui-util" }
 
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
-
 androidx-hilt-lifecycle-viewModelCompose = { group = "androidx.hilt", name = "hilt-lifecycle-viewmodel-compose", version.ref = "androidxHiltLifecycleViewModelCompose" }
 androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
 androidx-lifecycle-runtimeTesting = { group = "androidx.lifecycle", name = "lifecycle-runtime-testing", version.ref = "androidxLifecycle" }
 androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
 androidx-lifecycle-viewModel-testing = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-testing", version.ref = "androidxLifecycle" }
 androidx-lifecycle-viewModel-navigation3 = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "androidxLifecycleViewModelNavigation3" }
-
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "hilt" }
 hilt-ext-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
 hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
-
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "androidxCoreSplashscreen" }
+androidx-dataStore = { group = "androidx.datastore", name = "datastore", version.ref = "androidxDataStore" }
+protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf" }
+protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf" }
 
 kotlin-metadata = { module = "org.jetbrains.kotlin:kotlin-metadata-jvm", version.ref = "kotlin" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle-api", version.ref = "androidGradlePlugin" }
@@ -74,6 +80,7 @@ compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+protobuf = { id = "com.google.protobuf", version.ref = "protobufPlugin" }
 
 # Plugins defined by this project
 abiao-android-application = { id = "abiao.android.application" }
@@ -83,5 +90,6 @@ abiao-android-feature-api = { id = "abiao.android.feature.api" }
 abiao-android-library = { id = "abiao.android.library" }
 abiao-android-library-compose = { id = "abiao.android.library.compose" }
 abiao-hilt = { id = "abiao.hilt" }
+abiao-jvm-library = {id = "abiao.jvm.library"}
 
 
